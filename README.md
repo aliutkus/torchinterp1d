@@ -36,9 +36,9 @@ Either 1-D or 2-D. If it is not 1-D, its length along the first dimension must b
 The CUDA `interp1d` function depends on the [pytorch-searchsorted](https://github.com/aliutkus/pytorch-searchsorted) repository.
 
 You must:
-1. Clone that repo through `git clone git@github.com:aliutkus/pytorch-searchsorted.git`
+1. Clone that repo through `git clone git@github.com:aliutkus/pytorch_searchsorted.git`
 2. Go in the corresponding directory and launch `make`.
-3. Copy the whole `searchsorted` directory that has been generated as a subfolder of the present `interpolate` folder.
+3. Have the `pytorch_searchsorted` directory in your python path.
 
 ## Usage
 
