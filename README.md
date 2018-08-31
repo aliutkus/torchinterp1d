@@ -7,7 +7,7 @@ This repository implements an `interp1d` function, enabling
 linear 1D interpolation on the GPU for Pytorch.
 
 ```
-def interp1d(x, y, xnew, cuda=True):
+def interp1d(x, y, xnew, out=None, cuda=True):
 ```
 
 This function returns interpolated values of a set of 1-D functions at the desired query points `xnew`.
@@ -27,7 +27,7 @@ The length of `y` along its last dimension must be the same as that of `x`
 * `xnew` : (P,) or (D, P) Pytorch Tensor.
 Either 1-D or 2-D. If it is not 1-D, its length along the first dimension must be the same as that of whichever `x` and `y` is 2-D. x-coordinates for which we want the interpolated output.
 
-*  out : (D, P) Pytorch Tensor`
+* `out` : (D, P) Pytorch Tensor`
         Tensor for the output. If None: allocated automatically.
         
 * `cuda` : bool.
