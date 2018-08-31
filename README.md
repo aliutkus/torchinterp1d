@@ -25,11 +25,18 @@ Either 1-D or 2-D. It contains the actual values that correspond to the coordina
 The length of `y` along its last dimension must be the same as that of `x`
 
 * `xnew` : (P,) or (D, P) Pytorch Tensor.
-Either 1-D or 2-D. If it is not 1-D, its length along the first dimension must be the same as that of whichever `x` and `y` is 2-D.
+Either 1-D or 2-D. If it is not 1-D, its length along the first dimension must be the same as that of whichever `x` and `y` is 2-D. x-coordinates for which we want the interpolated output.
 
+*  out : (D, P) Pytorch Tensor`
+        Tensor for the output. If None: allocated automatically.
+        
 * `cuda` : bool.
     if True, will attempt to use CUDA if available.
     If False, a non-optimized loop over D will take place, calling the `interp1d` [scipy function](https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.interp1d.html) for each of the D problemns.
+
+### Results
+
+a Pytorch tensor of shape (D, P), containing the interpolated values.
 
 ## Installation
 
