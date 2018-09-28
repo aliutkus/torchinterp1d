@@ -1,0 +1,3 @@
+[submodule "pytorch_searchsorted"]
+	path = pytorch_searchsorted
+	url = git@github.com:aliutkus/pytorch_searchsorted.git
