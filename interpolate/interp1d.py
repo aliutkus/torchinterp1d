@@ -16,7 +16,6 @@ import scipy.interpolate as sp_interp
 
 class Interp1d(torch.autograd.Function):
 
-    @staticmethod
     def forward(ctx, x, y, xnew, out=None, cuda=True):
         """
         Linear 1D interpolation on the GPU for Pytorch.
@@ -61,7 +60,6 @@ class Interp1d(torch.autograd.Function):
             else:
                 v[name] = vec
             is_flat[name] = v[name].shape[0] == 1
-
         # Checking for the dimensions
         assert (v['x'].shape[1] == v['y'].shape[1]
                 and (
