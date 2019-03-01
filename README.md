@@ -1,4 +1,4 @@
-# pytorch-interp1d
+# torchinterp1d
 ## CUDA 1-D interpolation for Pytorch
 
 ## Presentation
@@ -30,22 +30,20 @@ Either 1-D or 2-D. If it is not 1-D, its length along the first dimension must b
 * `out` : (D, P) Pytorch Tensor`
         Tensor for the output. If None: allocated automatically.
         
-* `cuda` : bool.
-    if True, will attempt to use CUDA if available.
-    If False, a non-optimized loop over D will take place, calling the `interp1d` [scipy function](https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.interp1d.html) for each of the D problemns.
-
 ### Results
 
 a Pytorch tensor of shape (D, P), containing the interpolated values.
 
 ## Installation
 
-The CUDA `interp1d` function depends on the [pytorch-searchsorted](https://github.com/aliutkus/pytorch-searchsorted) repository.
+The CUDA `interp1d` function depends on the [torchsearchsorted](https://github.com/aliutkus/torchsearchsorted) repository.
 
-You must:
-1. Clone that repo through `git clone git@github.com:aliutkus/pytorch_searchsorted.git`
-2. Go in the corresponding directory and launch `make`.
-3. Have the `pytorch_searchsorted` directory in your python path.
+If not installed, you must:
+1. Clone that repo through `git clone git@github.com:aliutkus/torchsearchsorted.git`
+2. Go in the corresponding `install` subdirectory of that repo and launch `python setup.py install`.
+
+
+Then, go in the `install` subfolder and type `python setup.py install`
 
 ## Usage
 
