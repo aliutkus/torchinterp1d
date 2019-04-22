@@ -42,7 +42,8 @@ class Interp1d(torch.autograd.Function):
             raise Exception(
                 'The interp1d function depends on the '
                 'torchsearchsorted module, which is not available.\n'
-                'You must get it at https://github.com/aliutkus/torchsearchsorted\n')
+                'You must get it at ',
+                'https://github.com/aliutkus/torchsearchsorted\n')
 
         # making the vectors at least 2D
         is_flat = {}
@@ -126,10 +127,8 @@ class Interp1d(torch.autograd.Function):
         enable_grad = False
         saved_inputs = []
         for name in ['x', 'y', 'xnew']:
-            #v[name] = v[name].detach()
             if require_grad[name]:
                 enable_grad = True
-                #v[name].requires_grad_()
                 saved_inputs += [v[name]]
             else:
                 saved_inputs += [None, ]

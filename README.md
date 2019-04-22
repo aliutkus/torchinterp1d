@@ -30,7 +30,7 @@ Either 1-D or 2-D. If it is not 1-D, its length along the first dimension must b
 
 * `out` : (D, P) Pytorch Tensor`
         Tensor for the output. If None: allocated automatically.
-        
+
 ### Results
 
 a Pytorch tensor of shape (D, P), containing the interpolated values.
@@ -41,14 +41,14 @@ The CUDA `interp1d` function depends on the [torchsearchsorted](https://github.c
 
 If not installed, you must:
 1. Clone that repo through `git clone git@github.com:aliutkus/torchsearchsorted.git`
-2. Go in the corresponding `install` subdirectory of that repo and launch `python setup.py install`.
+2. Go in the corresponding directory of that repo and launch `pip install .`.
 
 
-Then, go in the `install` subfolder and type `python setup.py install`
+Then, type `pip install .` in the root folder of this repo.
 
 ## Usage
 
-Try out `python test.py`
+Try out `python test.py` in the `examples` folder.
 ```
 Solving 100000 interpolation problems: each with 100 observations and 30 desired values
 CPU: 8060.260ms, GPU: 70.735ms, error: 0.000000%.
