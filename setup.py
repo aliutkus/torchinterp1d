@@ -17,7 +17,6 @@ setup(
     description='An interp1d implementation for pytorch',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/sigsep/norbert',
     author='Antoine Liutkus',
     author_email='antoine.liutkus@inria.fr',
     packages=['torchinterp1d'],
