@@ -44,7 +44,7 @@ If not installed, you must:
 2. Go in the corresponding directory of that repo and launch `pip install .`.
 
 
-Then, type `pip install .` in the root folder of this repo.
+Then, type `pip install -e .` in the root folder of this repo.
 
 ## Usage
 
