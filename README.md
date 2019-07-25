@@ -41,7 +41,7 @@ The CUDA `interp1d` function depends on the [torchsearchsorted](https://github.c
 
 If not installed, you must:
 1. Clone that repo through `git clone git@github.com:aliutkus/torchsearchsorted.git`
-2. Go in the corresponding directory of that repo and launch `pip install .`.
+2. Go in the corresponding directory of that repo and launch `python setup.py install`.
 
 
 Then, type `pip install -e .` in the root folder of this repo.
