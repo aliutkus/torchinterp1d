@@ -106,7 +106,7 @@ class Interp1d(torch.autograd.Function):
             v[name] = v[name].to(device)
 
         # calling searchsorted on the x values.
-        ind = ynew
+        ind = ynew.long()
         searchsorted(v['x'].contiguous(), v['xnew'].contiguous(), ind)
 
         # the `-1` is because searchsorted looks for the index where the values
@@ -116,7 +116,7 @@ class Interp1d(torch.autograd.Function):
         # we clamp the index, because the number of intervals is x.shape-1,
         # and the left neighbour should hence be at most number of intervals
         # -1, i.e. number of columns in x -2
-        ind = torch.clamp(ind, 0, v['x'].shape[1] - 1 - 1).long()
+        ind = torch.clamp(ind, 0, v['x'].shape[1] - 1 - 1)
 
         # helper function to select stuff according to the found indices.
         def sel(name):
