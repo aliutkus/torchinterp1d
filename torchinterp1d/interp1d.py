@@ -50,6 +50,7 @@ class Interp1d(torch.autograd.Function):
         require_grad = {}
         v = {}
         device = []
+        eps = torch.finfo(y.dtype).eps
         for name, vec in {'x': x, 'y': y, 'xnew': xnew}.items():
             assert len(vec.shape) <= 2, 'interp1d: all inputs must be '\
                                         'at most 2-D.'
@@ -141,7 +142,7 @@ class Interp1d(torch.autograd.Function):
             v['slopes'] = (
                     (v['y'][:, 1:]-v['y'][:, :-1])
                     /
-                    (v['x'][:, 1:]-v['x'][:, :-1])
+                    (eps + v['x'][:, 1:]-v['x'][:, :-1])
                 )
 
             # now build the linear interpolation
