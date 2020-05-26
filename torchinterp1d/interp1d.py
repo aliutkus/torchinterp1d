@@ -142,7 +142,7 @@ class Interp1d(torch.autograd.Function):
             v['slopes'] = (
                     (v['y'][:, 1:]-v['y'][:, :-1])
                     /
-                    (eps + v['x'][:, 1:]-v['x'][:, :-1])
+                    (eps + (v['x'][:, 1:]-v['x'][:, :-1]))
                 )
 
             # now build the linear interpolation
