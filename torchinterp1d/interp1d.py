@@ -1,11 +1,5 @@
 import torch
 import contextlib
-SEARCHSORTED_AVAILABLE = True
-try:
-    from torchsearchsorted import searchsorted
-except ImportError:
-    SEARCHSORTED_AVAILABLE = False
-
 
 class Interp1d(torch.autograd.Function):
     def __call__(self, x, y, xnew, out=None):
@@ -37,14 +31,6 @@ class Interp1d(torch.autograd.Function):
             Tensor for the output. If None: allocated automatically.
 
         """
-        # checking availability of the searchsorted pytorch module
-        if not SEARCHSORTED_AVAILABLE:
-            raise Exception(
-                'The interp1d function depends on the '
-                'torchsearchsorted module, which is not available.\n'
-                'You must get it at ',
-                'https://github.com/aliutkus/torchsearchsorted\n')
-
         # making the vectors at least 2D
         is_flat = {}
         require_grad = {}
@@ -107,7 +93,7 @@ class Interp1d(torch.autograd.Function):
 
         # calling searchsorted on the x values.
         ind = ynew.long()
-        searchsorted(v['x'].contiguous(), v['xnew'].contiguous(), ind)
+        torch.searchsorted(v['x'].contiguous(), v['xnew'].contiguous(), out=ind)
 
         # the `-1` is because searchsorted looks for the index where the values
         # must be inserted to preserve order. And we want the index of the
