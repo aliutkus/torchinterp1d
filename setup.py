@@ -27,6 +27,6 @@ setup(
     packages=['torchinterp1d'],
     keywords='interp1d torch',
     install_requires=[
-        'torchsearchsorted @ git+https://github.com/aliutkus/torchsearchsorted',
+        'torch==1.6',
     ],
     )

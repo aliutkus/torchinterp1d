@@ -1,6 +1,8 @@
 # torchinterp1d
 ## CUDA 1-D interpolation for Pytorch
 
+Requires PyTorch >= 1.6 (due to [torch.searchsorted](https://pytorch.org/docs/master/generated/torch.searchsorted.html)).
+
 ## Presentation
 
 This repository implements an `Interp1d` class that overrides torch.autograd.Function, enabling
