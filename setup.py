@@ -27,6 +27,6 @@ setup(
     packages=['torchinterp1d'],
     keywords='interp1d torch',
     install_requires=[
-        'torch==1.6',
+        'torch>=1.6',
     ],
     )
