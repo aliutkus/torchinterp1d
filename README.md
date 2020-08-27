@@ -39,14 +39,7 @@ a Pytorch tensor of shape (D, P), containing the interpolated values.
 
 ## Installation
 
-The CUDA `interp1d` function depends on the [torchsearchsorted](https://github.com/aliutkus/torchsearchsorted) repository.
-
-If not installed, you must:
-1. Clone that repo through `git clone git@github.com:aliutkus/torchsearchsorted.git`
-2. Go in the corresponding directory of that repo and launch `python setup.py install`.
-
-
-Then, type `pip install -e .` in the root folder of this repo.
+Type `pip install -e .` in the root folder of this repo.
 
 ## Usage
 
