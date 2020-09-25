@@ -93,7 +93,14 @@ class Interp1d(torch.autograd.Function):
 
         # calling searchsorted on the x values.
         ind = ynew.long()
-        torch.searchsorted(v['x'].contiguous(), v['xnew'].contiguous(), out=ind)
+
+        # expanding xnew to match the number of rows of x in case only one xnew is
+        # provided
+        if v['xnew'].shape[0] == 1:
+            v['xnew'] = v['xnew'].expand(v['x'].shape[0], -1)
+
+        torch.searchsorted(v['x'].contiguous(),
+                           v['xnew'].contiguous(), out=ind)
 
         # the `-1` is because searchsorted looks for the index where the values
         # must be inserted to preserve order. And we want the index of the
