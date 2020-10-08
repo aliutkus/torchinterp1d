@@ -1,5 +1,6 @@
 import torch
 import contextlib
+from torchsearchsorted import searchsorted
 
 class Interp1d(torch.autograd.Function):
     def __call__(self, x, y, xnew, out=None):
@@ -99,7 +100,7 @@ class Interp1d(torch.autograd.Function):
         if v['xnew'].shape[0] == 1:
             v['xnew'] = v['xnew'].expand(v['x'].shape[0], -1)
 
-        torch.searchsorted(v['x'].contiguous(),
+        searchsorted(v['x'].contiguous(),
                            v['xnew'].contiguous(), out=ind)
 
         # the `-1` is because searchsorted looks for the index where the values
