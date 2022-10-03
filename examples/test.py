@@ -2,7 +2,7 @@ import torch
 import matplotlib.pyplot as plt
 import time
 import numpy as np
-from torchinterp1d import Interp1d
+from torchinterp1d import interp1d
 
 
 if __name__ == "__main__":
@@ -32,7 +32,7 @@ if __name__ == "__main__":
 
         # calling the cpu version
         t0_cpu = time.time()
-        yq_cpu = Interp1d()(x, y, xnew, yq_cpu)
+        yq_cpu = interp1d(x, y, xnew, yq_cpu)
         t1_cpu = time.time()
 
         display_str = 'CPU: %0.3fms, ' % ((t1_cpu-t0_cpu)*1000)
@@ -44,7 +44,7 @@ if __name__ == "__main__":
 
             # launching the cuda version
             t0 = time.time()
-            yq_gpu = Interp1d()(x, y, xnew, yq_gpu)
+            yq_gpu = interp1d(x, y, xnew, yq_gpu)
             t1 = time.time()
 
             # compute the difference between both

@@ -5,12 +5,11 @@ Requires PyTorch >= 1.6 (due to [torch.searchsorted](https://pytorch.org/docs/ma
 
 ## Presentation
 
-This repository implements an `Interp1d` class that overrides torch.autograd.Function, enabling
+This repository implements an `interp1d` function that overrides torch.autograd.Function, enabling
 linear 1D interpolation on the GPU for Pytorch.
 
 ```
-class Interp1d(torch.autograd.Function):
-    def forward(ctx, x, y, xnew, out=None)
+def interp1d(x, y, xnew, out=None)
 ```
 
 This function returns interpolated values of a set of 1-D functions at the desired query points `xnew`.
@@ -18,7 +17,7 @@ This function returns interpolated values of a set of 1-D functions at the desir
 It works similarly to Matlab™ or scipy functions with
 the `linear` interpolation mode on, except that it parallelises over any number of desired interpolation problems and exploits CUDA on the GPU
 
-### Parameters for `Interp1d.forward`
+### Parameters for `interp1d`
 
 * `x` : a (N, ) or (D, N) Pytorch Tensor:
 Either 1-D or 2-D. It contains the coordinates of the observed samples.
@@ -42,6 +41,8 @@ a Pytorch tensor of shape (D, P), containing the interpolated values.
 Type `pip install -e .` in the root folder of this repo.
 
 ## Usage
+
+Basically simply calle `torchinterp1d.interp1d`.
 
 Try out `python test.py` in the `examples` folder.
 ```
