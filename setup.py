@@ -3,12 +3,6 @@ from setuptools import setup
 from codecs import open
 from os import path
 
-# trying to import the required torch package
-try:
-    import torch
-except ImportError:
-    raise Exception('qsketch requires PyTorch to be installed. aborting')
-
 here = path.abspath(path.dirname(__file__))
 
 # Get the long description from the README file
