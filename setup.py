@@ -14,6 +14,7 @@ setup(
     name='torchinterp1d',
     version='1.1',
     description='An interp1d implementation for pytorch',
+    download_url='https://github.com/aliutkus/torchinterp1d/archive/refs/tags/v1.tar.gz',
     long_description=long_description,
     long_description_content_type='text/markdown',
     author='Antoine Liutkus',
